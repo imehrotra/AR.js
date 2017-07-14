@@ -1270,6 +1270,13 @@ THREEx.ArToolkitProfile.prototype.hiroMarker = function () {
 	return this
 }
 
+THREEx.ArToolkitProfile.prototype.testMarker = function () {
+	this.contextParameters.detectionMode = 'mono'
+
+	this.defaultMarkerParameters.type = 'pattern'
+	this.defaultMarkerParameters.patternUrl = THREEx.ArToolkitContext.baseURL + '../data/data/5gic.patt'
+	return this
+}
 //////////////////////////////////////////////////////////////////////////////
 //		Source
 //////////////////////////////////////////////////////////////////////////////
@@ -2732,6 +2739,9 @@ AFRAME.registerComponent('arjsmarker', {
 		}else if( this.data.preset === 'kanji' ){
 			this.data.type = 'pattern'
 			this.data.patternUrl = THREEx.ArToolkitContext.baseURL+'examples/marker-training/examples/pattern-files/pattern-kanji.patt'
+		}else if( this.data.preset === '5gic' ){
+			this.data.type = 'pattern'
+			this.data.patternUrl = THREEx.ArToolkitContext.baseURL + '../data/data/5gic.patt'
 		}else if( this.data.preset === 'area' ){
 			this.data.type = 'area'
 			// fall through
